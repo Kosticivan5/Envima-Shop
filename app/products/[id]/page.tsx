@@ -2,8 +2,8 @@ import { formatCurrency } from "@/utils/format";
 import { fetchSingleProduct } from "@/utils/actions";
 import Container from "@/components/global/Container";
 import BreadCrumbs from "@/components/single-product/BreadCrumbs";
-import ProductRating from "@/components/single-product/ProductRating";
-import AddToCart from "@/components/single-product/AddToCart";
+// import ProductRating from "@/components/single-product/ProductRating";
+// import AddToCart from "@/components/single-product/AddToCart";
 import Image from "next/image";
 import FavoriteToggleButton from "@/components/products/FavoriteToggleButton";
 

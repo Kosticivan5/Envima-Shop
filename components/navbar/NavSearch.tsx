@@ -28,7 +28,8 @@ const NavSearch = () => {
     if (!searchParams.get("search")) {
       setSearch("");
     }
-  }, [searchParams.get("search")]);
+  }, [searchParams]);
+  // }, [searchParams.get("search")]);
 
   return (
     <form className="flex-1 max-w-[600px] relative text-sm">
