@@ -41,7 +41,7 @@ const LinksDropdown = () => {
         </SignedOut>
         <SignedIn>
           {links.map((link) => {
-            if (!isAdmin && link.href === "/admin/sales") {
+            if (!isAdmin && link.label === "dashboard") {
               return null;
             }
 
