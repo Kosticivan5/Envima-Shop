@@ -6,32 +6,54 @@ import {
   DropdownMenuTrigger,
   DropdownMenuContent,
   DropdownMenuItem,
-  // DropdownMenuSeparator,
+  DropdownMenuSeparator,
 } from "@/components/ui/dropdown-menu";
 import Link from "next/link";
+import UserIcon from "./UserIcon";
+import { SignedIn, SignedOut, SignInButton, SignUpButton } from "@clerk/nextjs";
+import SignOutLink from "./SignOutLink";
 
 const LinksDropdown = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant={"outline"}>
+        <Button variant={"secondary"}>
           <LuAlignLeft />
-          user
+          <UserIcon />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="w-40" align="end">
-        {links.map((link) => {
-          return (
-            <DropdownMenuItem
-              key={link.href}
-              className="hover:pl-3 transition-all duration-200"
-            >
-              <Link href={link.href} className="capitalize w-full">
-                {link.label}
-              </Link>
-            </DropdownMenuItem>
-          );
-        })}
+        <SignedOut>
+          <DropdownMenuItem>
+            <SignInButton mode="modal">
+              <button className="w-full text-left text-sm">Login</button>
+            </SignInButton>
+          </DropdownMenuItem>
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignUpButton mode="modal">
+              <button className="w-full text-left text-sm">Register</button>
+            </SignUpButton>
+          </DropdownMenuItem>
+        </SignedOut>
+        <SignedIn>
+          {links.map((link) => {
+            return (
+              <DropdownMenuItem
+                key={link.href}
+                className="hover:pl-3 transition-all duration-200"
+              >
+                <Link href={link.href} className="capitalize w-full">
+                  {link.label}
+                </Link>
+              </DropdownMenuItem>
+            );
+          })}
+          <DropdownMenuSeparator />
+          <DropdownMenuItem>
+            <SignOutLink />
+          </DropdownMenuItem>
+        </SignedIn>
       </DropdownMenuContent>
     </DropdownMenu>
   );
