@@ -43,7 +43,7 @@ const SingleProduct = async ({ params }: { params: { id: string } }) => {
             </div>
             {/* <ProductRating productId={params.id} /> */}
             <h4 className="text-lg mt-2 text-main">{company}</h4>
-            <p className="mt-3 text-md  inline-block p-2 rounded-sm">
+            <p className="mt-3 text-md  inline-block rounded-sm">
               {dollarsAmount}
             </p>
             <p className="mt-6 leading-8 font-light">{description}</p>
